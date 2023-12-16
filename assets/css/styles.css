@@ -193,6 +193,18 @@ header ul li a .icon-menu {
   background-color: var(--white-hover);
 }
 
+.btn-v img {
+  width: clamp(3rem, 1vw + 1rem, 10rem);
+  height: clamp(3rem, 1vw + 1rem, 10rem);
+}
+
+@media (max-width: 400px) {
+  .btn-v img {
+    width: clamp(3rem, 5vw + 1rem, 5rem);
+    height: clamp(3rem, 5vw + 1rem, 5rem);
+  }
+}
+
 .btn-c {
   color: white;
 }
