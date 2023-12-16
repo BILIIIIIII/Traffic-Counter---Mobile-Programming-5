@@ -305,7 +305,7 @@ header ul li a .icon-menu {
 
   border-radius: var(--radius-btn-round);
 
-  padding: 0.5rem 1rem;
+  padding: 0.25rem 0.5rem;
   gap: 1rem;
 }
 
@@ -318,8 +318,8 @@ header ul li a .icon-menu {
   background-color: var(--red);
   color: var(--white);
 
-  width: 24px;
-  height: 24px;
+  width: clamp(0.25rem, 1vw + 1rem, 2rem);
+  height: clamp(0.25rem, 1vw + 1rem, 2rem);
 
   display: flex;
   justify-content: center;
@@ -330,6 +330,12 @@ header ul li a .icon-menu {
   border-radius: var(--radius-btn-round);
 
   padding: 0.5rem;
+}
+
+.card .v .lv .item img,
+.card .v .rv .item img {
+  width: clamp(1rem, 1vw + 1rem, 2rem);
+  height: clamp(1rem, 1vw + 1rem, 2rem);
 }
 
 /* ------------------------------------------------STATISTIC------------------------------------------------------------------ */
