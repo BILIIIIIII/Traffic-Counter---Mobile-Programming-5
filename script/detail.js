@@ -2,11 +2,11 @@ let trafficData = [];
 
 const vehicleIcon = {
   motorLeft: "../assets/icon/motor-kiri.png",
-  mobilLeft: "../assets/icon/mobil-kiri.png",
+  mobilLeft: "../assets/icon/car-kiri.png",
   trukLeft: "../assets/icon/truk-kiri.png",
   busLeft: "../assets/icon/bus-kiri.png",
   motorRight: "../assets/icon/motor-kanan.png",
-  mobilRight: "../assets/icon/mobil-kanan.png",
+  mobilRight: "../assets/icon/car-kanan.png",
   trukRight: "../assets/icon/truk-kanan.png",
   busRight: "../assets/icon/bus-kanan.png",
 };
