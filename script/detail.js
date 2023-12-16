@@ -1,14 +1,14 @@
 let trafficData = [];
 
 const vehicleIcon = {
-  motorLeft: "../assets/icon/bxs-car.svg",
-  mobilLeft: "../assets/icon/bxs-car.svg",
-  trukLeft: "../assets/icon/bxs-car.svg",
-  busLeft: "../assets/icon/bxs-car.svg",
-  motorRight: "../assets/icon/bxs-car.svg",
-  mobilRight: "../assets/icon/bxs-car.svg",
-  trukRight: "../assets/icon/bxs-car.svg",
-  busRight: "../assets/icon/bxs-car.svg",
+  motorLeft: "../assets/icon/motor-kiri.png",
+  mobilLeft: "../assets/icon/mobil-kiri.png",
+  trukLeft: "../assets/icon/truk-kiri.png",
+  busLeft: "../assets/icon/bus-kiri.png",
+  motorRight: "../assets/icon/motor-kanan.png",
+  mobilRight: "../assets/icon/mobil-kanan.png",
+  trukRight: "../assets/icon/truk-kanan.png",
+  busRight: "../assets/icon/bus-kanan.png",
 };
 
 document.addEventListener("DOMContentLoaded", function () {
