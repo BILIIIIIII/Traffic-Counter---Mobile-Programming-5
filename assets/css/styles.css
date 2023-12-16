@@ -1,0 +1,343 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --transition-btn: 0.2s ease;
+
+  --padding-btn: 1rem 1.7rem;
+  --padding-card: 1rem;
+  --padding-menu: 0.5rem 1.7rem;
+
+  --border-checking: 2px solid red;
+
+  --radius-btn-big: 0.5rem;
+  --radius-btn-small: 0.25rem;
+  --radius-btn-round: 50px;
+
+  --purple: rgb(95, 95, 170);
+  --purple-hover: rgb(62, 62, 136);
+  --red: rgb(209, 43, 43);
+  --red-hover: rgb(146, 42, 42);
+  --green: rgb(89, 210, 73);
+  --green-hover: rgb(82, 195, 67);
+
+  --grey: rgb(182, 182, 182);
+  --grey-hover: grey;
+  --white: white;
+  --white-hover: rgb(241, 241, 241);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  background-image: url(../img/bg.jpg);
+  /* background-color: rgb(219, 219, 219); */
+
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  font-family: "Poppins", sans-serif;
+}
+
+/* --------------------------------------------------------------------------------------------------------------------------- */
+
+main {
+  padding: 2rem clamp(3rem, 5vw + 1rem, 15rem);
+}
+
+main .container h1 {
+  font-size: 3rem;
+
+  margin-bottom: 1rem;
+}
+/* ------------------------------------------NAVBAR------------------------------------------------------------------------ */
+
+header {
+  /* position: sticky;
+  top: 0; */
+
+  background-color: white;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5rem;
+}
+
+header ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 1rem;
+}
+
+header ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  list-style: none;
+}
+
+header ul li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 0.7rem;
+  text-transform: uppercase;
+
+  padding: var(--padding-menu);
+  border-radius: var(--radius-btn-small);
+
+  outline: none;
+  text-decoration: none;
+
+  transition: var(--transition-btn);
+}
+header ul li:hover a {
+  background-color: var(--white-hover);
+}
+
+header ul li a .icon-menu {
+  display: none;
+}
+
+.active {
+  background-color: var(--white-hover);
+  color: var(--purple);
+  fill: var(--purple);
+
+  font-weight: bolder;
+}
+
+/* CSS untuk mobile view */
+@media (max-width: 767px) {
+  header {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+
+    background-color: #f0f0f0; /* Ubah sesuai kebutuhan */
+    padding: 10px; /* Sesuaikan padding sesuai keinginan */
+
+    display: flex;
+    text-align: center; /* Atur agar teks berada di tengah */
+    justify-content: center;
+
+    z-index: 999; /* Atur z-index agar tetap di atas konten lainnya jika ada */
+  }
+
+  header h3 {
+    display: none;
+  }
+
+  header ul li a .menu {
+    display: none;
+  }
+
+  header ul li a .icon-menu {
+    display: block;
+  }
+}
+
+/* --------------------------------------------COUNTER------------------------------------------------------------------------- */
+
+.vehicle-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 1rem 0;
+  gap: 1rem;
+}
+
+.left-btn,
+.right-btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  gap: 1rem;
+}
+
+.btn-v,
+.btn-c {
+  background-color: white;
+
+  padding: var(--padding-btn);
+
+  outline: none;
+  border: none;
+  border-radius: var(--radius-btn-big);
+}
+.btn-v:hover,
+.btn-c:hover {
+  cursor: pointer;
+  transition: var(--transition-btn);
+}
+
+.btn-v {
+  width: 100%;
+  height: 100%;
+}
+.btn-v:hover {
+  background-color: var(--white-hover);
+}
+
+.btn-c {
+  color: white;
+}
+
+#btn-reset {
+  background-color: var(--white);
+  color: #333;
+
+  border: 2px solid var(--grey);
+}
+#btn-reset:hover {
+  background-color: var(--white-hover);
+}
+#btn-save {
+  background-color: var(--green);
+}
+#btn-save:hover {
+  background-color: var(--green-hover);
+}
+
+/* ----------------------------------------------DETAILS-------------------------------------------------------------------- */
+#clearDataButton {
+  background-color: var(--red);
+  color: var(--white);
+
+  padding: var(--padding-btn);
+  margin-bottom: 1rem;
+  outline: none;
+  border: none;
+  border-radius: var(--radius-btn-big);
+}
+#clearDataButton:hover {
+  background-color: var(--red-hover);
+
+  cursor: pointer;
+  transition: var(--transition-btn);
+}
+
+#cards {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /* border: var(--border-checking); */
+
+  /* padding: 1rem; */
+  margin: 1rem 0;
+
+  gap: 1rem;
+}
+
+.card {
+  /* width: 230px; */
+  width: 100%;
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: var(--radius-btn-big);
+}
+
+.card .time {
+  background-color: var(--purple);
+  color: var(--white);
+  width: fit-content;
+  font-size: 0.6rem;
+
+  border-radius: var(--radius-btn-round);
+  padding: 0.5rem 2rem;
+  margin-bottom: 1rem;
+}
+
+.card .v {
+  display: flex;
+  align-items: center;
+
+  gap: 1rem;
+}
+
+@media (max-width: 1200px) {
+  .card .v {
+    display: flex;
+    flex-direction: column;
+
+    gap: 0.5rem;
+  }
+}
+
+.card .v .lv,
+.card .v .rv {
+  background-color: var(--white-hover);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: var(--radius-btn-round);
+
+  padding: 0.5rem;
+  gap: 1rem;
+}
+
+.card .v .lv .item,
+.card .v .rv .item {
+  position: relative;
+  background-color: var(--white);
+
+  font-size: 0.7rem;
+
+  border-radius: var(--radius-btn-round);
+
+  padding: 0.5rem 1rem;
+  gap: 1rem;
+}
+
+.card .v .lv .item .value,
+.card .v .rv .item .value {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+
+  background-color: var(--red);
+  color: var(--white);
+
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 0.7rem;
+
+  border-radius: var(--radius-btn-round);
+
+  padding: 0.5rem;
+}
+
+/* ------------------------------------------------STATISTIC------------------------------------------------------------------ */
+
+#myChart {
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: var(--radius-btn-big);
+}
+
+/* ---------------------------------------------------MEDIA-QUERY----------------------------------------------------------------- */

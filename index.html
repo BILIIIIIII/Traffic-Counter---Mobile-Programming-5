@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Traffic Counter</title>
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <script src="./script/script.js" defer></script>
+  </head>
+
+  <body>
+    <header>
+      <h3>Traffic Counter</h3>
+      <ul>
+        <li>
+          <a href="index.html">
+            <span class="menu">index</span>
+            <span class="icon-menu"
+              ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M6 22h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2zm3-3H7v-2h2v2zm0-4H7v-2h2v2zm0-4H7V9h2v2zm4 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V9h2v2zm4 8h-2v-6h2v6zm0-8h-2V9h2v2zM6 4h12v3H6V4z"
+                /></svg></span
+          ></a>
+        </li>
+        <li>
+          <a href="./pages/detail.html">
+            <span class="menu">detail</span>
+            <span class="icon-menu"
+              ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20 3H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-9 14H5v-2h6v2zm8-4H5v-2h14v2zm0-4H5V7h14v2z" /></svg></span
+          ></a>
+        </li>
+        <li>
+          <a href="./pages/statistic.html">
+            <span class="menu">statistic</span>
+            <span class="icon-menu"
+              ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M20 12a2 2 0 0 0-.703.133l-2.398-1.963c.059-.214.101-.436.101-.67C17 8.114 15.886 7 14.5 7S12 8.114 12 9.5c0 .396.1.765.262 1.097l-2.909 3.438A2.06 2.06 0 0 0 9 14c-.179 0-.348.03-.512.074l-2.563-2.563C5.97 11.348 6 11.179 6 11c0-1.108-.892-2-2-2s-2 .892-2 2 .892 2 2 2c.179 0 .348-.03.512-.074l2.563 2.563A1.906 1.906 0 0 0 7 16c0 1.108.892 2 2 2s2-.892 2-2c0-.237-.048-.46-.123-.671l2.913-3.442c.227.066.462.113.71.113a2.48 2.48 0 0 0 1.133-.281l2.399 1.963A2.077 2.077 0 0 0 18 14c0 1.108.892 2 2 2s2-.892 2-2-.892-2-2-2z"
+                /></svg></span
+          ></a>
+        </li>
+      </ul>
+    </header>
+    <main>
+      <div class="Hitung container">
+        <h1>Hitung</h1>
+
+        <div class="count">
+          <div class="vehicle-btn">
+            <div class="left-btn">
+              <button class="btn-v" id="motorLeft">
+                <span class="value-motorLeft"></span>
+              </button>
+              <button class="btn-v" id="mobilLeft">
+                <span class="value-mobilLeft"></span>
+              </button>
+              <button class="btn-v" id="trukLeft">
+                <span class="value-trukLeft"></span>
+              </button>
+              <button class="btn-v" id="busLeft">
+                <span class="value-busLeft"></span>
+              </button>
+            </div>
+            <div class="right-btn">
+              <button class="btn-v" id="motorRight">
+                <span class="value-motorRight"></span>
+              </button>
+              <button class="btn-v" id="mobilRight">
+                <span class="value-mobilRight"></span>
+              </button>
+              <button class="btn-v" id="trukRight">
+                <span class="value-trukRight"></span>
+              </button>
+              <button class="btn-v" id="busRight">
+                <span class="value-busRight"></span>
+              </button>
+            </div>
+          </div>
+          <div class="controls">
+            <button class="btn-c" id="btn-reset">Reset</button>
+            <button class="btn-c" id="btn-save">Simpan</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
