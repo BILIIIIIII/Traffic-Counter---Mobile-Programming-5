@@ -1,5 +1,7 @@
 let trafficData = [];
 
+const API_ENDPOINT = "https://657df4193e3f5b1894635fae.mockapi.io/trafficData";
+
 // const vehicleButtons = document.querySelectorAll(".vehicle-btn button");
 // const span = document.querySelectorAll(".vehicle-btn button span");
 const resetButton = document.getElementById("btn-reset");
@@ -68,7 +70,7 @@ resetButton.addEventListener("click", function () {
   });
 });
 
-saveButton.addEventListener("click", function () {
+saveButton.addEventListener("click", async function () {
   const isEmpty = Object.values(vehicles).every((val) => val === 0);
 
   if (isEmpty) {
@@ -78,34 +80,28 @@ saveButton.addEventListener("click", function () {
 
   const timestamp = getTimestamp();
 
-  // Mengambil data yang sudah ada dari local storage (jika ada)
-  const existingData = JSON.parse(localStorage.getItem("trafficData"));
-
-  let newId;
-  if (existingData && existingData.length > 0) {
-    newId = existingData[existingData.length - 1].id + 1;
-  } else {
-    newId = 1;
-  }
-
   const dataToSave = {
-    id: newId,
     timeStamp: timestamp,
     vehicle: { ...vehicles },
   };
 
-  // Jika ada data sebelumnya, gabungkan dengan data baru
-  if (existingData) {
-    existingData.push(dataToSave);
-    // Simpan kembali gabungan data lama dan baru ke local storage
-    localStorage.setItem("trafficData", JSON.stringify(existingData));
-  } else {
-    // Jika tidak ada data sebelumnya, buat array baru dan simpan data baru ke dalamnya
-    const newData = [dataToSave];
-    localStorage.setItem("trafficData", JSON.stringify(newData));
-  }
+  try {
+    const response = await fetch(API_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(dataToSave),
+    });
 
-  showToast("Berhasil menyimpan data.");
+    if (response.ok) {
+      showToast("Berhasil menyimpan data.");
+    } else {
+      throw new Error("Gagal menyimpan data.");
+    }
+  } catch (error) {
+    showToast(error.message);
+  }
 });
 
 function getTimestamp() {
