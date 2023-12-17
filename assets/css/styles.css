@@ -85,6 +85,8 @@ header ul li {
 }
 
 header ul li a {
+color: #333;
+  
   display: flex;
   justify-content: center;
   align-items: center;
