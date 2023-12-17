@@ -226,7 +226,8 @@ header ul li a .icon-menu {
 }
 
 /* ----------------------------------------------DETAILS-------------------------------------------------------------------- */
-#clearDataButton {
+#clearDataButton,
+.deleteButton {
   background-color: var(--red);
   color: var(--white);
 
@@ -236,7 +237,8 @@ header ul li a .icon-menu {
   border: none;
   border-radius: var(--radius-btn-big);
 }
-#clearDataButton:hover {
+#clearDataButton:hover,
+.deleteButton:hover {
   background-color: var(--red-hover);
 
   cursor: pointer;
