@@ -1,11 +1,38 @@
 let trafficData = [];
-const dataVehicle = localStorage.getItem("trafficData");
-// console.log(dataVehicle);
-if (dataVehicle) {
-  trafficData = [...JSON.parse(dataVehicle)]; // Menggabungkan dengan data dari local storage
+let myChart = null; // Menyimpan objek Chart
+
+const API_ENDPOINT = "https://657df4193e3f5b1894635fae.mockapi.io/trafficData";
+
+// Generate label-label jam dari 00:00 hingga 23:59
+const allJamLabels = Array.from({ length: 24 * 60 }, (_, index) => {
+  const hour = Math.floor(index / 60); // Mendapatkan nilai jam dari indeks
+  const minute = index % 60; // Mendapatkan nilai menit dari indeks
+  const formattedHour = hour < 10 ? `0${hour}` : `${hour}`;
+  const formattedMinute = minute < 10 ? `0${minute}` : `${minute}`;
+  return `${formattedHour}:${formattedMinute}`;
+});
+
+const jamLabels = Array.from({ length: 24 }, (_, index) => {
+  const hour = index < 10 ? `0${index}` : `${index}`;
+  return `${hour}:00`;
+});
+
+async function fetchDataFromAPI() {
+  try {
+    const response = await fetch(API_ENDPOINT);
+
+    if (!response.ok) {
+      throw new Error("Terjadi kesalahan saat mengambil data dari API.");
+    }
+
+    trafficData = await response.json(); // Mengambil data dari API
+    createChart(); // Panggil fungsi createChart setelah mendapatkan data
+  } catch (error) {
+    showToast(error.message);
+  }
 }
 
-console.log(trafficData);
+console.log(trafficData); // Memanggil fungsi fetchDataFromAPI untuk mendapatkan data dari API
 
 function createChart() {
   const jamData = {}; // Objek untuk menyimpan jumlah kendaraan per jam
@@ -30,20 +57,6 @@ function createChart() {
     jamData[jam].total += totalVehicles; // Menambah jumlah total kendaraan per jam
   });
 
-  // Generate label-label jam dari 00:00 hingga 23:59
-  const allJamLabels = Array.from({ length: 24 * 60 }, (_, index) => {
-    const hour = Math.floor(index / 60); // Mendapatkan nilai jam dari indeks
-    const minute = index % 60; // Mendapatkan nilai menit dari indeks
-    const formattedHour = hour < 10 ? `0${hour}` : `${hour}`;
-    const formattedMinute = minute < 10 ? `0${minute}` : `${minute}`;
-    return `${formattedHour}:${formattedMinute}`;
-  });
-
-  const jamLabels = Array.from({ length: 24 }, (_, index) => {
-    const hour = index < 10 ? `0${index}` : `${index}`;
-    return `${hour}:00`;
-  });
-
   const labelsWithData = Object.keys(jamData);
 
   //   Ambil label-label jam yang ada di trafficData
@@ -61,7 +74,12 @@ function createChart() {
   ];
 
   const ctx = document.getElementById("myChart").getContext("2d");
-  new Chart(ctx, {
+
+  if (myChart) {
+    myChart.destroy();
+  }
+
+  myChart = new Chart(ctx, {
     type: "line",
     data: {
       labels: sortedLabels, // Menggunakan semua label jam dari 00:00 hingga 23:59
@@ -73,6 +91,8 @@ function createChart() {
   });
 }
 
+fetchDataFromAPI();
+
 function getRandomColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
@@ -81,6 +101,9 @@ window.onload = function () {
   createChart();
 };
 
+function showToast(message) {
+  alert(message);
+}
 // -------------------------------------------------------------------------------------------------------------------------------
 
 // Ambil URL halaman saat ini
