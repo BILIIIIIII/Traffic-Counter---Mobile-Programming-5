@@ -96,6 +96,13 @@ saveButton.addEventListener("click", async function () {
 
     if (response.ok) {
       showToast("Berhasil menyimpan data.");
+
+      Object.keys(vehicles).forEach((key) => {
+        vehicles[key] = 0;
+        // Mengupdate teks pada tombol untuk menampilkan nilai yang sudah direset
+        const button = document.querySelector(`#${key}`);
+        button.innerHTML = `<img src="${vehicleIcon[key]}" alt="gambar kendaraan">  ${vehicles[key]}`;
+      });
     } else {
       throw new Error("Gagal menyimpan data.");
     }
