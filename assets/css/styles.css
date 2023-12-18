@@ -49,9 +49,16 @@ main {
   padding: 2rem clamp(3rem, 5vw + 1rem, 15rem);
 }
 
-main .container {
+
+main .detail {
+  height: 100%;
+}
+
+main .hitung,
+main .statistic {
   height: 100vh;
 }
+
 
 main .container h1 {
   font-size: 3rem;
