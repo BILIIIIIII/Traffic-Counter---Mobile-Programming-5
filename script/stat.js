@@ -70,6 +70,7 @@ function createChart() {
       data: sortedLabels.map((jam) => jamData[jam].total || 0), // Data jumlah total kendaraan per jam
       fill: false,
       borderColor: getRandomColor(),
+      tension: 0.4
     },
   ];
 
@@ -87,6 +88,22 @@ function createChart() {
     },
     options: {
       responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: "total kendaraan",
+          },
+        },
+        x: {
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: "waktu lalu lintas kendaraan",
+          },
+        },
+      },
     },
   });
 }
